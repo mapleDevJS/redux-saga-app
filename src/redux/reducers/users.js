@@ -8,18 +8,18 @@ const initialState = {
   
   export default function users(state = initialState, action) {
     switch (action.type) {
-      case type.GET_USERS_REQUESTED:
+      case type.GET_USERS.REQUESTED:
         return {
           ...state,
           loading: true,
         }
-      case type.GET_USERS_SUCCESS:
+      case type.GET_USERS.SUCCESS:
         return {
           ...state,
           loading: false,
           users: action.users
         }
-      case type.GET_USERS_FAILED:
+      case type.GET_USERS.FAILED:
         return {
           ...state,
           loading: false,
