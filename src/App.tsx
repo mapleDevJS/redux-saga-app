@@ -1,13 +1,13 @@
-import React from 'react';
+import * as React from 'react';
 import Users from './components/UsersComponent';
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
+    <div className="App">{}
       <Users />
     </div>
   );
-}
+};
 
 export default App;
