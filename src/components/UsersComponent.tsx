@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {getUsers} from '../redux/actions/users-action';
 import Card from './CardComponent';
 
-const Users = () => {
+const Users: React.FC = () => {
   const dispatch = useDispatch();
   const users = useSelector((state:any) => state.users.users);
   const loading = useSelector((state: any) => state.users.loading);

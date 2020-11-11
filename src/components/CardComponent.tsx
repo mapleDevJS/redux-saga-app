@@ -1,6 +1,18 @@
 import * as React from "react";
+import {PropsWithChildren} from "react";
 
-const Card = (props: any) => {
+export interface ICardProps {
+  user: {
+    name: string;
+
+    company: {
+      name: string;
+      catchPhrase: string;
+    }
+  };
+}
+
+const Card: React.ElementType = (props: PropsWithChildren<ICardProps>) => {
   return (
     <div className="card">
       <div className="card-body">
