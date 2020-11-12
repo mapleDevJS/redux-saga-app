@@ -1,7 +1,8 @@
 import {GET_USERS} from '../types';
+import {UserInterface} from "../sagas/user-saga";
 
 export type InitialStateType = {
-  users: Array<any>,
+  users: Array<UserInterface> | Array<null>,
   loading: boolean,
   error: string | null,
 };

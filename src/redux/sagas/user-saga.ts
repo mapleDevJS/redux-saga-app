@@ -3,7 +3,31 @@ import {GET_USERS} from '../types';
 
 const API_URL: string = `https://jsonplaceholder.typicode.com/users`;
 
-function getApi() {
+export interface UserInterface {
+  id: number,
+  name: string,
+  username: string,
+  email: string,
+  address: {
+    street: string,
+    suite: string,
+    city: string,
+    zipcode: string,
+    geo: {
+      lat: string,
+      lng: string
+    }
+  },
+  phone: string,
+  website: string,
+  company: {
+    name: string,
+    catchPhrase: string,
+    bs: string
+  }
+}
+
+function getApi(): Promise<UserInterface> {
   return fetch(API_URL, {
     method: `GET`,
     headers: {
@@ -17,7 +41,7 @@ function getApi() {
 
 function* fetchUsers() {
   try {
-    const users = yield call(getApi);
+    const users: Array<UserInterface> = yield call(getApi);
     yield put({
       type: GET_USERS.SUCCESS,
       users

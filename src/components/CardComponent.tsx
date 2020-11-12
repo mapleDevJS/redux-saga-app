@@ -1,7 +1,7 @@
 import * as React from "react";
 import {PropsWithChildren} from "react";
 
-export interface ICardProps {
+export type ICardProps = {
   user: {
     name: string;
 

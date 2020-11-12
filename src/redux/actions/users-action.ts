@@ -1,11 +1,12 @@
 import {GET_USERS} from '../types';
+import {UserInterface} from "../sagas/user-saga";
 
-interface GetUsersActionType {
+type GetUsersActionType = {
   type: typeof GET_USERS.REQUESTED,
-    payload: any
+  payload: Array<UserInterface>
 }
 
-export const getUsers = (users: any): GetUsersActionType => {
+export const getUsers = (users: Array<UserInterface>): GetUsersActionType => {
   return {
     type: GET_USERS.REQUESTED,
     payload: users
