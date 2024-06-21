@@ -6,7 +6,7 @@ const initialState = {
     error: null,
   }
   
-  export default function users(state = initialState, action) {
+  export default function usersReducer(state = initialState, action) {
     switch (action.type) {
       case type.GET_USERS.REQUESTED:
         return {
