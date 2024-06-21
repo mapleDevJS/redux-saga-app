@@ -1,30 +1,25 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 
 const API_URL = 'https://jsonplaceholder.typicode.com/users';
+const REQUEST_HEADERS = {
+    'Content-Type': 'application/json',
+};
 
-function getApi() {
-    return fetch(API_URL, {
+async function fetchUsersFromApi() {
+    const response = await fetch(API_URL, {
         method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    }).then(response => response.json())
-    .catch(error => {throw error})
+        headers: REQUEST_HEADERS,
+    });
+    if (!response.ok) throw new Error('Network response was not ok');
+    return response.json();
 }
 
 function* fetchUsers(action) {
     try {
-        const users = yield call(getApi);
-        yield put({
-            type: 'GET_USERS_SUCCESS',
-            users: users
-        })
-    }
-    catch (error) {
-        yield put({
-            type: 'GET_USERS_FAILED',
-            message: error.message
-        });
+        const users = yield call(fetchUsersFromApi);
+        yield put({ type: 'GET_USERS_SUCCESS', users });
+    } catch (error) {
+        yield put({ type: 'GET_USERS_FAILED', message: error.message });
     }
 }
 
