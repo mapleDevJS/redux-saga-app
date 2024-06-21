@@ -1,4 +1,6 @@
-# React + Vite
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a66c8893-0c65-4d54-bc18-e261b698fa0e/deploy-status)](https://app.netlify.com/sites/redux-saga-app/deploys)
+
+# React + Vite + Redux Saga
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
