@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { getUsers } from '../redux/actions/users';
-import Card from './CardComponent';
+import Card from './Card.jsx';
 
 const Users = () => {
   const dispatch = useDispatch();
